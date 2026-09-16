@@ -61,11 +61,11 @@ export function computeTarget(mobile: boolean): Target {
     const sweep = range(m, 0, 0.92);
     const out = range(m, 0.9, 1);
     return mobile
-      ? { x: lerp(-0.18, 0.2, sweep), y: lerp(0.18, -0.2, sweep), scale: lerp(0.95, 0.4, out), dark: 1, spin: m * 3 }
+      ? { x: lerp(0.22, 0.12, sweep), y: lerp(0.3, 0.26, sweep), scale: lerp(0.55, 0.3, out), dark: 1, spin: m * 3 }
       : {
-          x: lerp(-0.28, 0.08, sweep),
-          y: lerp(0.06, -0.04, Math.sin(sweep * Math.PI)),
-          scale: lerp(1.25, 0.5, out),
+          x: lerp(0.3, 0.2, sweep),
+          y: lerp(0.18, 0.02, sweep),
+          scale: lerp(0.72, 0.35, out),
           dark: 1,
           spin: m * 3,
         };
@@ -73,6 +73,6 @@ export function computeTarget(mobile: boolean): Target {
 
   // Hero → transição para o manifesto
   return mobile
-    ? { x: lerp(0.24, -0.18, range(h, 0.35, 1)), y: lerp(0.1, 0.18, h), scale: lerp(0.72, 0.95, range(h, 0.4, 1)), dark: range(h, 0.5, 1), spin: h }
-    : { x: lerp(0.07, -0.28, range(h, 0.2, 1)), y: lerp(0.02, 0.06, h), scale: lerp(1, 1.25, range(h, 0.3, 1)), dark: range(h, 0.55, 1), spin: h };
+    ? { x: lerp(0.24, 0.22, range(h, 0.35, 1)), y: lerp(0.1, 0.3, h), scale: lerp(0.6, 0.55, range(h, 0.4, 1)), dark: range(h, 0.5, 1), spin: h }
+    : { x: lerp(0.07, 0.3, range(h, 0.2, 1)), y: lerp(0.02, 0.18, h), scale: lerp(0.85, 0.72, range(h, 0.3, 1)), dark: range(h, 0.55, 1), spin: h };
 }

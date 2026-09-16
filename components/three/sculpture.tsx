@@ -55,7 +55,7 @@ export function Sculpture({ quality }: Props) {
     s.py += (stage.pointer.y - s.py) * (1 - Math.exp(-dt * 2));
 
     const t = state.clock.elapsedTime;
-    const base = Math.min(viewport.width, viewport.height * 0.9) * (mobile ? 0.3 : 0.2);
+    const base = Math.min(viewport.width, viewport.height * 0.9) * (mobile ? 0.36 : 0.3);
 
     g.position.set(s.x * viewport.width, -s.y * viewport.height + Math.sin(t * 0.5) * 0.04, 0);
     g.scale.setScalar(Math.max(0.0001, base * s.scale));

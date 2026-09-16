@@ -60,7 +60,7 @@ export function Hero() {
           </p>
         </motion.div>
 
-        <div className="lg:w-[54%]">
+        <div className="lg:w-[56%]">
           {/* 4 · Título */}
           <RevealText
             as="h1"

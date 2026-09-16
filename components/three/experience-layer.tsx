@@ -32,6 +32,7 @@ export function ExperienceLayer() {
   // Rolagem → progresso das fases
   useEffect(() => {
     if (!enabled) return;
+    if (process.env.NODE_ENV !== "production") (window as unknown as { __mbStage: typeof stage }).__mbStage = stage;
     const updateVisibility = () => {
       stage.setVisible(stage.hero < 1 || stage.manifestoActive || stage.ctaActive);
     };
@@ -62,7 +63,7 @@ export function ExperienceLayer() {
       ScrollTrigger.create({
         trigger: "#cta-final",
         start: "top 85%",
-        end: "bottom bottom",
+        end: "bottom 45%",
         onUpdate: (self) => {
           stage.cta = self.progress;
         },
@@ -103,7 +104,7 @@ export function ExperienceLayer() {
     };
   }, [enabled]);
 
-  if (!enabled || !mount || tier === "low" || tier === null) return null;
+  if (!mount || (tier !== "high" && tier !== "mid")) return null;
   return (
     <ExperienceCanvas
       quality={tier}
